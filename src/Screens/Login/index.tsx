@@ -31,22 +31,22 @@ export function Login({ navigation }: any) {
         />
 
       <Box
-        w='100%'
-        h='70%'
-        bg='#ffffff'
-        p={10}
-        px={6}
-        borderRadius='3xl'
-        roundedBottom='none'
-        borderTopWidth={2}
-        borderLeftWidth={2}
-        borderRightWidth={2}
-        borderColor='#fff'
-        color='#000'
+      w='100%'
+      h='70%'
+      bg='#ffffff'
+      p={10}
+      px={6}
+      borderRadius='3xl'
+      roundedBottom='none'
+      borderTopWidth={2}
+      borderLeftWidth={2}
+      borderRightWidth={2}
+      borderColor='#fff'
+      color='#000'
 
-        _text={{
-          color: '#fff'
-        }}
+      _text={{
+        color: '#fff'
+      }}
       >
 
         <Heading fontSize='2xl'>
