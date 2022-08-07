@@ -1,18 +1,26 @@
 import React from 'react';
+import { Keyboard, TouchableWithoutFeedback } from 'react-native';
 
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { Routes } from './src/Routes';
 import { NativeBaseProvider } from 'native-base';
+import { Routes } from './src/Routes';
 
 export default function App() {
   return (
-
-    <SafeAreaView style={{ flex: 1 }}>
-        <NativeBaseProvider>
-          <StatusBar style="auto" translucent={true} />
+    <SafeAreaView style={{ flex: 1, backgroundColor: '#000' }}>
+      <StatusBar style='auto' translucent={true} />
+      
+      <NativeBaseProvider>
+    
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+    
           <Routes />
-        </NativeBaseProvider>
+    
+        </TouchableWithoutFeedback>
+    
+      </NativeBaseProvider>
+    
     </SafeAreaView>
   );
 }

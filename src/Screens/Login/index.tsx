@@ -1,141 +1,169 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Keyboard, Platform, TouchableWithoutFeedback } from 'react-native';
+import { BackgroundImage } from '../../components/BackgroundImage';
+
+
+import MaterialIcons from '@expo/vector-icons/MaterialIcons'
 
 import {
   Box,
   Button,
   FormControl,
   Heading,
-  Image,
   Input,
-  Link,
   View,
+  Text,
   VStack,
-  ZStack
+  ZStack,
+  Icon,
+  KeyboardAvoidingView
 
 } from 'native-base';
 
-
 export function Login({ navigation }: any) {
+
+  const [show, setShow] = useState(false)
+
   return (
 
     <View
       flex={1}
-      // bg='#445566'
-      justifyContent='flex-end'
     >
-        <Image 
-        source={{uri:"https://source.unsplash.com/random"}}
-        resizeMode='stretch'
-        flex={1}
-        alt='imagem aleatória'
-        />
 
-      <Box
-      w='100%'
-      h='70%'
-      bg='#ffffff'
-      p={10}
-      px={6}
-      borderRadius='3xl'
-      roundedBottom='none'
-      borderTopWidth={2}
-      borderLeftWidth={2}
-      borderRightWidth={2}
-      borderColor='#fff'
-      color='#000'
-
-      _text={{
-        color: '#fff'
-      }}
+      <ZStack
+        size='full'
+        justifyContent='flex-end'
       >
+        
+        <BackgroundImage />
 
-        <Heading fontSize='2xl'>
-          Login
-        </Heading>
+        <KeyboardAvoidingView
+          flex={1}
+          w='full'
+        >
 
-        <FormControl>
+          <Box
+            w='100%'
+            // h='70%'
+            bg='#000000b7'
+            p={10}
+            px={6}
+            pb={20}
+            borderRadius='3xl'
+            roundedBottom='none'
+            color='#fff'
 
-          <VStack
-            alignItems='center'
-            space={3}
-            mt={2}
+            _text={{
+              color: '#fff'
+            }}
           >
 
-            <VStack
-              w='full'
-            >
-              <FormControl.Label
-                textAlign='left'
-                w='full'
-                _text={{
-                  fontSize: 'lg'
-                }}
-              >
-                Email
-              </FormControl.Label>
-              <Input
-                type='text'
-                variant='rounded'
-                placeholder='Email'
-
-              />
-            </VStack>
-
-
-            <VStack
-              w='full'
-            >
-              <FormControl.Label
-                textAlign='left'
-                w='full'
-                _text={{
-                  fontSize: 'lg'
-                }}
-              >
-                Senha
-              </FormControl.Label>
-              <Input
-                type='password'
-                variant='rounded'
-                placeholder='Senha'
-
-              />
-              <Link _text={{fontSize: 'xs'}} justifyContent='flex-end' isUnderlined={false}>
-                Esqueceu a senha?
-              </Link>
-            </VStack>
-
-            <Button
-              borderRadius='full'
-              w='full'
-              py={2}
-              mt={5}
-              _text={{
-                fontSize:'md'
-              }}
-            >
+            <Heading fontSize='3xl' color='#fff'>
               Login
-            </Button>
+            </Heading>
 
-            <FormControl.HelperText
-              mt={0}
-              flexDirection='row'
-            >
-              Ainda não possui uma conta? 
-              <Link 
-                _text={{fontSize: 'xs', color: '#1d19e9', fontWeight: 'bold'}} 
-                isUnderlined={false} 
-                ml={1}
-                onPress={() => navigation.navigate('SingUp')}
+            <FormControl>
+
+              <VStack
+                alignItems='center'
+                space={3}
+                mt={2}
               >
-                Cadastre-se
-              </Link>
-            </FormControl.HelperText>
 
-          </VStack>
-        </FormControl>
+                <VStack
+                  w='full'
+                >
+                  <FormControl.Label
+                    textAlign='left'
+                    w='full'
+                    _text={{
+                      fontSize: 'lg',
+                      color: '#fff'
+                    }}
+                  >
+                    Email
+                  </FormControl.Label>
+                  <Input
+                    type='text'
+                    variant='rounded'
+                    placeholder='Seu email'
+                    fontSize='sm'
 
-      </Box>
+                  />
+                </VStack>
+
+
+                <VStack
+                  w='full'
+                >
+                  <FormControl.Label
+                    textAlign='left'
+                    w='full'
+                    _text={{
+                      fontSize: 'lg',
+                      color: '#fff'
+                    }}
+                  >
+                    Senha
+                  </FormControl.Label>
+                  <Input
+                    variant='rounded'
+                    type={show ? "text" : "password"}
+
+                    InputRightElement={
+                      <Icon as={<MaterialIcons name={show ? "visibility" : "visibility-off"} />}
+                        size={5} mr="5" color="muted.400"
+                        onPress={() => setShow(!show)} />
+                    }
+                    fontSize='sm'
+                    placeholder="Sua senha"
+                  />
+
+                  <View justifyContent='flex-end'>
+                    <Button variant='link' justifyContent='flex-end'>
+                      <Text fontSize='xs' w='full' color='#fff'>Esqueceu a senha?</Text>
+                    </Button>
+                  </View>
+                </VStack>
+
+                <Button
+                  borderRadius='full'
+                  bgColor={'#c01f1f'}
+                  w='full'
+                  py={3}
+                  mt={5}
+                  _text={{
+                    fontSize: 'lg',
+                  }}
+                  shadow={3}
+                  onPress={() => navigation.navigate('Profile')}
+                >
+                  LOGIN
+                </Button>
+
+                <View
+                  mt={0}
+                  flexDirection='row'
+                >
+                  <Text
+                  color='#fff'
+                  >Ainda não possui uma conta?</Text>
+
+                  <Button
+                    variant='ghost'
+                    p={0}
+                    px={1}
+                    onPress={() => navigation.navigate('SingUp')}
+                  >
+                    <Text fontWeight='bold' color='#ec3131'> Cadastre-se </Text>
+                  </Button>
+                </View>
+              </VStack>
+            </FormControl>
+
+          </Box>
+        </KeyboardAvoidingView>
+      </ZStack>
     </View>
   );
 }

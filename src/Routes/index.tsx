@@ -12,15 +12,17 @@ export function Routes() {
     <NavigationContainer>
       <Navigator
          screenOptions={{
-          headerShown: false,
+          headerShown: true,
+          headerShadowVisible: false,
+          headerTransparent: true,
         }}
       >
 
-        <Screen name="Login" component={Login}/>
+        <Screen name="Login" component={Login} options={{headerShown: false}}/>
 
-        <Screen name="SingUp" component={SingUp}/>
+        <Screen name="SingUp" component={SingUp} options={{headerTintColor: '#fff', headerTitle: ''}}/>
 
-        <Screen name="Profile" component={Profile}/>
+        <Screen name="Profile" component={Profile} options={{headerTintColor: '#fff', headerTitle: ''}}/>
         
       </Navigator>
     </NavigationContainer>
