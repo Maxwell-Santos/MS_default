@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import { Keyboard, Platform, TouchableWithoutFeedback } from 'react-native';
 import { BackgroundImage } from '../../components/BackgroundImage';
 
-
 import MaterialIcons from '@expo/vector-icons/MaterialIcons'
+import { ButtonLogin } from './styles.js'
 
 import {
   Box,
@@ -34,7 +33,7 @@ export function Login({ navigation }: any) {
         size='full'
         justifyContent='flex-end'
       >
-        
+
         <BackgroundImage />
 
         <KeyboardAvoidingView
@@ -44,7 +43,6 @@ export function Login({ navigation }: any) {
 
           <Box
             w='100%'
-            // h='70%'
             bg='#000000b7'
             p={10}
             px={6}
@@ -88,7 +86,7 @@ export function Login({ navigation }: any) {
                     variant='rounded'
                     placeholder='Seu email'
                     fontSize='sm'
-
+                    color='#fff'
                   />
                 </VStack>
 
@@ -117,6 +115,7 @@ export function Login({ navigation }: any) {
                     }
                     fontSize='sm'
                     placeholder="Sua senha"
+                    color='#fff'
                   />
 
                   <View justifyContent='flex-end'>
@@ -126,27 +125,21 @@ export function Login({ navigation }: any) {
                   </View>
                 </VStack>
 
-                <Button
-                  borderRadius='full'
-                  bgColor={'#c01f1f'}
-                  w='full'
-                  py={3}
-                  mt={5}
-                  _text={{
-                    fontSize: 'lg',
-                  }}
-                  shadow={3}
+                <ButtonLogin
+                style={{elevation: 3}}
                   onPress={() => navigation.navigate('Profile')}
                 >
-                  LOGIN
-                </Button>
+                  <Text
+                  style={{color: '#fff', fontSize: 18}}
+                  >LOGIN</Text>
+                </ButtonLogin>
 
                 <View
                   mt={0}
                   flexDirection='row'
                 >
                   <Text
-                  color='#fff'
+                    color='#fff'
                   >Ainda não possui uma conta?</Text>
 
                   <Button

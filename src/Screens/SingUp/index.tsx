@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { BackgroundImage } from '../../components/BackgroundImage';
 
-import MaterialIcons from '@expo/vector-icons/MaterialIcons'
+import MaterialIcons from '@expo/vector-icons/MaterialIcons';
+import { ButtonSingUp } from './styles.js'
 
 import {
   Box,
@@ -35,7 +36,7 @@ export function SingUp({ navigation }: any) {
         size='full'
         justifyContent='flex-end'
       >
-        <BackgroundImage/>
+        <BackgroundImage />
 
 
         <KeyboardAvoidingView
@@ -44,19 +45,19 @@ export function SingUp({ navigation }: any) {
         >
 
           <Box
-             w='100%'
-             // h='70%'
-             bg='#000000b7'
-             p={10}
-             px={6}
-             pb={20}
-             borderRadius='3xl'
-             roundedBottom='none'
-             color='#fff'
- 
-             _text={{
-               color: '#fff'
-             }}
+            w='100%'
+            // h='70%'
+            bg='#000000b7'
+            p={10}
+            px={6}
+            pb={20}
+            borderRadius='3xl'
+            roundedBottom='none'
+            color='#fff'
+
+            _text={{
+              color: '#fff'
+            }}
           >
 
             <Heading fontSize='3xl' color='#fff'>
@@ -80,7 +81,7 @@ export function SingUp({ navigation }: any) {
                     w='full'
                     _text={{
                       fontSize: 'lg',
-                      color:'#fff'
+                      color: '#fff'
                     }}
                   >
                     Nome
@@ -90,7 +91,7 @@ export function SingUp({ navigation }: any) {
                     variant='rounded'
                     placeholder='Seu nome'
                     fontSize='sm'
-
+                    color='#fff'
                   />
                 </VStack>
 
@@ -102,7 +103,7 @@ export function SingUp({ navigation }: any) {
                     w='full'
                     _text={{
                       fontSize: 'lg',
-                      color:'#fff'
+                      color: '#fff'
                     }}
                   >
                     Email
@@ -112,7 +113,7 @@ export function SingUp({ navigation }: any) {
                     variant='rounded'
                     placeholder='Seu melhor email'
                     fontSize='sm'
-
+                    color='#fff'
                   />
                 </VStack>
 
@@ -125,7 +126,7 @@ export function SingUp({ navigation }: any) {
                     w='full'
                     _text={{
                       fontSize: 'lg',
-                      color:'#fff'
+                      color: '#fff'
                     }}
                   >
                     Senha
@@ -133,6 +134,7 @@ export function SingUp({ navigation }: any) {
                   <Input
                     variant='rounded'
                     type={show ? "text" : "password"}
+                    color='#fff'
 
                     InputRightElement={
                       <Icon as={<MaterialIcons name={show ? "visibility" : "visibility-off"} />}
@@ -147,21 +149,15 @@ export function SingUp({ navigation }: any) {
 
                 </VStack>
 
-                <Button
-                  borderRadius='full'
-                  bgColor={'#c01f1f'}
-                  w='full'
-                  py={3}
-                  mt='15%'
-                  mb={0}
-                  _text={{
-                    fontSize: 'lg',
-                    color:'#fff'
-                  }}
-                  shadow={3}
+                <ButtonSingUp
+                style={{elevation: 3}}
                 >
-                  Continue
-                </Button>
+                  <Text
+                  style={{color: '#fff', fontSize: 18}}
+                  >
+                    CONTINUE
+                  </Text>
+                </ButtonSingUp>
 
                 <View
                   mt={0}
@@ -175,7 +171,7 @@ export function SingUp({ navigation }: any) {
                     px={1}
                     onPress={() => navigation.navigate('Login')}
                   >
-                    <Text fontWeight='bold' color='#fff'> Login </Text>
+                    <Text fontWeight='bold' color='#c01f1f'> Login </Text>
                   </Button>
                 </View>
               </VStack>
