@@ -1,7 +1,7 @@
-import styled from 'styled-components'
+import styled from 'styled-components/native';
 
 export const ButtonSingUp = styled.TouchableOpacity`
-  background-color: #c01f1f;
+  background-color: ${({ theme })=> theme.buttonColors.red};
   margin-top: 25px;
   width: 100%;
   padding: 15px 0;

@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import { BackgroundImage } from '../../components/BackgroundImage';
 
 import MaterialIcons from '@expo/vector-icons/MaterialIcons'
-import { ButtonLogin } from './styles.js'
+import { ButtonLogin } from './styles'
+import { useTheme } from 'styled-components/native';
+
 
 import {
   Box,
@@ -21,7 +23,8 @@ import {
 
 export function Login({ navigation }: any) {
 
-  const [show, setShow] = useState(false)
+  const [show, setShow] = useState(false);
+  const theme = useTheme();
 
   return (
 
@@ -56,7 +59,7 @@ export function Login({ navigation }: any) {
             }}
           >
 
-            <Heading fontSize='3xl' color='#fff'>
+            <Heading fontSize='3xl' color={theme.titleColor}>
               Login
             </Heading>
 
@@ -86,7 +89,7 @@ export function Login({ navigation }: any) {
                     variant='rounded'
                     placeholder='Seu email'
                     fontSize='sm'
-                    color='#fff'
+                    color={theme.inputColor}
                   />
                 </VStack>
 
@@ -115,7 +118,7 @@ export function Login({ navigation }: any) {
                     }
                     fontSize='sm'
                     placeholder="Sua senha"
-                    color='#fff'
+                    color={theme.inputColor}
                   />
 
                   <View justifyContent='flex-end'>

@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { BackgroundImage } from '../../components/BackgroundImage';
 
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
-import { ButtonSingUp } from './styles.js'
+import { ButtonSingUp } from './styles'
+import { useTheme } from 'styled-components/native';
 
 import {
   Box,
@@ -23,8 +24,9 @@ import {
 
 export function SingUp({ navigation }: any) {
   const [show, setShow] = useState(false);
+  const [clear, setClear] = useState(false);
 
-  const [clear, setClear] = useState(false)
+  const theme = useTheme();
 
   return (
 
@@ -46,21 +48,20 @@ export function SingUp({ navigation }: any) {
 
           <Box
             w='100%'
-            // h='70%'
             bg='#000000b7'
             p={10}
             px={6}
             pb={20}
             borderRadius='3xl'
             roundedBottom='none'
-            color='#fff'
+            color={theme.inputColor}
 
             _text={{
               color: '#fff'
             }}
           >
 
-            <Heading fontSize='3xl' color='#fff'>
+            <Heading fontSize='3xl' color={theme.titleColor}>
               Cadastrar
             </Heading>
 
@@ -91,7 +92,7 @@ export function SingUp({ navigation }: any) {
                     variant='rounded'
                     placeholder='Seu nome'
                     fontSize='sm'
-                    color='#fff'
+                    color={theme.inputColor}
                   />
                 </VStack>
 
@@ -113,7 +114,7 @@ export function SingUp({ navigation }: any) {
                     variant='rounded'
                     placeholder='Seu melhor email'
                     fontSize='sm'
-                    color='#fff'
+                    color={theme.inputColor}
                   />
                 </VStack>
 
@@ -134,7 +135,7 @@ export function SingUp({ navigation }: any) {
                   <Input
                     variant='rounded'
                     type={show ? "text" : "password"}
-                    color='#fff'
+                    color={theme.inputColor}
 
                     InputRightElement={
                       <Icon as={<MaterialIcons name={show ? "visibility" : "visibility-off"} />}

@@ -8,19 +8,19 @@ import { Routes } from './src/Routes';
 
 export default function App() {
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: '#000'}}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: '#000' }}>
       <StatusBar style='inverted' />
 
-        <NativeBaseProvider>
+      <NativeBaseProvider>
 
-          <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
 
-            <Routes />
+          <Routes />
 
-          </TouchableWithoutFeedback>
+        </TouchableWithoutFeedback>
 
-        </NativeBaseProvider>
-    
+      </NativeBaseProvider>
+
     </SafeAreaView>
   );
 }
