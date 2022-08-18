@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { BackgroundImage } from '../../components/BackgroundImage';
 
-import MaterialIcons from '@expo/vector-icons/MaterialIcons'
-import { ButtonLogin } from './styles'
+import MaterialIcons from '@expo/vector-icons/MaterialIcons';
+import { ButtonLogin } from './styles';
 import { useTheme } from 'styled-components/native';
-
 
 import {
   Box,
@@ -24,7 +23,10 @@ import {
 export function Login({ navigation }: any) {
 
   const [show, setShow] = useState(false);
-  const theme = useTheme();
+  // const theme = useTheme();
+
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   return (
 
@@ -59,7 +61,7 @@ export function Login({ navigation }: any) {
             }}
           >
 
-            <Heading fontSize='3xl' color={theme.titleColor}>
+            <Heading fontSize='3xl' color='#fff'>
               Login
             </Heading>
 
@@ -89,7 +91,8 @@ export function Login({ navigation }: any) {
                     variant='rounded'
                     placeholder='Seu email'
                     fontSize='sm'
-                    color={theme.inputColor}
+                    color='#fff'
+                    onChangeText={setEmail}
                   />
                 </VStack>
 
@@ -110,6 +113,7 @@ export function Login({ navigation }: any) {
                   <Input
                     variant='rounded'
                     type={show ? "text" : "password"}
+                    onChangeText={setPassword}
 
                     InputRightElement={
                       <Icon as={<MaterialIcons name={show ? "visibility" : "visibility-off"} />}
@@ -118,7 +122,7 @@ export function Login({ navigation }: any) {
                     }
                     fontSize='sm'
                     placeholder="Sua senha"
-                    color={theme.inputColor}
+                    color='#fff'
                   />
 
                   <View justifyContent='flex-end'>

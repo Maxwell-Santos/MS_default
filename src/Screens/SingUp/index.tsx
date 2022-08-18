@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
-import { BackgroundImage } from '../../components/BackgroundImage';
-
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
-import { ButtonSingUp } from './styles'
+
+import { BackgroundImage } from '../../components/BackgroundImage';
+import { Alert } from 'react-native';
+
+import { ButtonSingUp } from './styles';
 import { useTheme } from 'styled-components/native';
+import auth from '@react-native-firebase/auth';
+
 
 import {
   Box,
@@ -17,7 +21,7 @@ import {
   VStack,
   ZStack,
   KeyboardAvoidingView,
-  Icon
+  Icon,
 
 } from 'native-base';
 
@@ -26,7 +30,20 @@ export function SingUp({ navigation }: any) {
   const [show, setShow] = useState(false);
   const [clear, setClear] = useState(false);
 
-  const theme = useTheme();
+  // const theme = useTheme();
+
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+ function handleNewAccount(){
+    auth()
+    .createUserWithEmailAndPassword(email, password)
+    .then(() => {
+      Alert.alert('Conta', 'usuário cadastrado com sucesso')
+    
+    })
+    .catch((error) => console.log(error))
+  }
 
   return (
 
@@ -54,14 +71,14 @@ export function SingUp({ navigation }: any) {
             pb={20}
             borderRadius='3xl'
             roundedBottom='none'
-            color={theme.inputColor}
+            color='#fff'
 
             _text={{
               color: '#fff'
             }}
           >
 
-            <Heading fontSize='3xl' color={theme.titleColor}>
+            <Heading fontSize='3xl' color='#fff'>
               Cadastrar
             </Heading>
 
@@ -92,7 +109,7 @@ export function SingUp({ navigation }: any) {
                     variant='rounded'
                     placeholder='Seu nome'
                     fontSize='sm'
-                    color={theme.inputColor}
+                    color='#fff'
                   />
                 </VStack>
 
@@ -114,7 +131,9 @@ export function SingUp({ navigation }: any) {
                     variant='rounded'
                     placeholder='Seu melhor email'
                     fontSize='sm'
-                    color={theme.inputColor}
+                    color='#fff'
+                    onChangeText={setEmail}
+
                   />
                 </VStack>
 
@@ -135,7 +154,8 @@ export function SingUp({ navigation }: any) {
                   <Input
                     variant='rounded'
                     type={show ? "text" : "password"}
-                    color={theme.inputColor}
+                    color='#fff'
+                    onChangeText={setPassword}
 
                     InputRightElement={
                       <Icon as={<MaterialIcons name={show ? "visibility" : "visibility-off"} />}
@@ -152,6 +172,7 @@ export function SingUp({ navigation }: any) {
 
                 <ButtonSingUp
                 style={{elevation: 3}}
+                onPress={handleNewAccount}
                 >
                   <Text
                   style={{color: '#fff', fontSize: 18}}
