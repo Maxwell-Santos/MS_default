@@ -7,6 +7,8 @@
     - Styled-components
     - React-native
     - Typescript
-    
-<img src='src/assets/login-img.jpg' alt='login-img'/>
-<img src='src/assets/profile-img.jpg' alt='profile-img'/>
+ 
+ <div style='display: flex;'>
+ <img src='src/assets/login-img.jpg' alt='login-img' width='300px'/>
+<img src='src/assets/profile-img.jpg' alt='profile-img' width='300px'/>
+ </div>
