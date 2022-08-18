@@ -8,5 +8,5 @@
     - React-native
     - Typescript
     
-<img src='src/assets/login-img.jpg'/>
-<img src='src/assets/profile-img.jpg'/>
+<img src='src/assets/login-img.jpg' alt='login-img'/>
+<img src='src/assets/profile-img.jpg' alt='profile-img'/>
